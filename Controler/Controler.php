@@ -57,6 +57,11 @@ class Controler{
 
 
     // Productos
+    function tablaProducto(){
+        $productos = $this->modelProd->tablaProductoModel();
+        $this->viewProd->mostrarTablaCompleta($productos);
+    }
+
     function mostrarTablaProductos($id){
         $productos = $this->modelProd->valoresTablaProducto($id);
         $this->viewProd->mostrarTablaProductos($productos);
@@ -66,16 +71,36 @@ class Controler{
         $producto = $this->modelProd->productoDetalle($id_p);
         $this->viewProd->verProducto($producto);
     }
+    //Productos Administrador
+
+    function agregarProductos(){
+        var_dump("Hy");
+        if(isset($_POST["nombre"])&&(isset($_POST["marca"])&&isset($_POST["precio"])&&isset($_POST["stock"])&&isset($_POST["categoria"]))){
+            if(!empty($_POST["nombre"])&&(!empty($_POST["marca"])&&!empty($_POST["precio"])&&!empty($_POST["stock"])&&!empty($_POST["categoria"]))){
+                $nombre_p = $_POST["nombre"];
+                $marca_p = $_POST["marca"];
+                $precio_id = $_POST["precio"];
+                $stock_id = $_POST["stock"];
+                $id_categoria = $_POST["categoria"];
+         }else{
+             echo "erruor";
+         }
+        }else{
+            echo "error";
+        }
+        $this->modelProd->agregarProducto($nombre_p,$marca_p,$precio_id,$stock_id,$id_categoria);
+        $this->viewProd->mostrarProductos();
+        
+    } 
+
+    //Usuario y seccion
 
 
-    //user and secction
-
-
-    function loggin(){
-
+    function login(){
+        
     }
 
-    function inicioDeSecion(){
+    function inicioDeSeccion(){
         
     }
 }

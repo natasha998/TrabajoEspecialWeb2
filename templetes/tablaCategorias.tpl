@@ -12,3 +12,15 @@
 </table>
 
 {include file="./footer.tpl"}
+
+ver fotot celu natu
+if(user = administrador){
+	if(password = passwordAdmi){
+		ejecutame todas la funciones
+		agregarCat 
+		agregarPro 
+		editar
+		eliminar
+	}
+}
+

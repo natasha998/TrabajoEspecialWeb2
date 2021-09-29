@@ -30,6 +30,12 @@ switch ($params[0]) {
      case 'categorias': 
         $Cont->mostrarTablaCategoria();
      break;
+     case 'productos':
+        $Cont->tablaProducto();
+        break;
+    case 'agregarProductos':
+      $Cont->agregarProductos();
+      break;
      case 'mostrarTablaProductos':
         $Cont->mostrarTablaProductos($params[1]);
      break;

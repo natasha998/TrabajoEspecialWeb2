@@ -9,10 +9,16 @@ class ProdView{
     function __construct() {
         $this->smarty = new Smarty();
     }
+    function mostrarTablaCompleta($productos){
+        $this->smarty->assign('titulo','Lista de productos');
+        $this->smarty->assign('productos',$productos);
+
+        $this->smarty->display('templetes/tablaProductos.tpl');
+    }
 
     function mostrarTablaProductos($productos){
         
-        $this->smarty->assign('titulo', "lista de productos");
+        $this->smarty->assign('titulo', "lista de productos por categoria");
         $this->smarty->assign('productos',$productos);
 
         $this->smarty->display('templetes/tablaProductos.tpl');
@@ -26,5 +32,8 @@ class ProdView{
         $this->smarty->display('templetes/productoUnico.tpl');
     }
 
+    function mostrarProductos(){
+        header("Location: ".BASE_URL."productos");
+    }
     
 }
