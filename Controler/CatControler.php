@@ -16,4 +16,10 @@ class CatControler{
         $categorias = $this->model->valoresTablaCategoria();
         $this->view->mostrarTablaCategorias($categorias);
     }
+
+    function insertarCategorias($nombre_c,$detalle_c,$tipo_c){
+        $this->model->insertarTablaCategorias($_POST['nombre_c'], $_POST['detalle_c'],$_POST['tipo_c']);
+        $this->view->mostarHome();
+    }
+    
 }

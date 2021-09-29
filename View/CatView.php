@@ -1,20 +1,21 @@
 <?php
 
-class CatView{
+require_once './libs/Smarty.class.php';
 
-    function __construct()
-    {
-        
+class CatView{
+    private $smarty;
+
+    function __construct() {
+        $this->smarty = new Smarty();
     }
 
     function mostrarTablaCategorias($categorias){
-        $html = '<h1>Categorias linea 11</h1>' ;
-       
-        foreach($categorias as $categoria) {
-            $html.= '<li>lista:'.$categoria->tipo_categoria.'</li>';
 
-        }
-        echo $html;
+        $this->smarty->assign('categorias', $categorias);
+        $this->smarty->display('templetes/tablaCategorias.tpl');
     } 
 
+    function mostarHome(){
+        header("Location: ".BASE_URL."home");
+    }
 }

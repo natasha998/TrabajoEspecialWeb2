@@ -2,6 +2,8 @@
 require_once "./Controler/CatControler.php";
 require_once "./Controler/ProdControler.php";
 
+require_once "./Controler/Home.php";
+
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -19,15 +21,23 @@ $CategoriaCont = new CatControler();
 
 $ProductosCont = new ProdControler();
 
+$home = new Home();
+
 
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home': 
+       $home->mostrarHome();
+     break;
+     case 'categorias': 
         $CategoriaCont->mostrarTablaCategoria();
      break;
-     case 'productos': 
-        $ProductosCont->mostrarTablaProductos();
+     case 'mostrarTablaProductos':
+        $ProductosCont->mostrarTablaProductos($params[1]);
      break;
+     case 'productoUnico':
+        $ProductosCont->verProducto($params[1]);
+        break;
     default: 
         echo('404 Page not found'); 
         break;

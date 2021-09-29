@@ -1,21 +1,30 @@
 <?php
 
-class ProdView{
+require_once './libs/Smarty.class.php';
 
-    function __construct()
-    {
-        
+
+class ProdView{
+    private $smarty;
+
+    function __construct() {
+        $this->smarty = new Smarty();
     }
 
     function mostrarTablaProductos($productos){
-        $html = '<h1>Productos</h1>' ;
         
-        foreach($productos as $producto) {
-            $html.= '<li>'.$producto->tipo_p.'</li>';
+        $this->smarty->assign('titulo', "lista de productos");
+        $this->smarty->assign('productos',$productos);
 
-        }
-        echo $html;
+        $this->smarty->display('templetes/tablaProductos.tpl');
+
     }
 
+    function verProducto($producto){
+        $this->smarty->assign('titulo', "Producto Unico");
+        $this->smarty->assign('producto',$producto);
 
+        $this->smarty->display('templetes/productoUnico.tpl');
+    }
+
+    
 }

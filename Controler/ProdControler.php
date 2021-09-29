@@ -13,8 +13,13 @@ class ProdControler{
         $this->view = new ProdView();
     }
 
-    function mostrarTablaProductos(){
-        $productos = $this->model->valoresTablaProducto();
+    function mostrarTablaProductos($id){
+        $productos = $this->model->valoresTablaProducto($id);
         $this->view->mostrarTablaProductos($productos);
+    }
+    
+    function verProducto($id_p){
+        $producto = $this->model->productoDetalle($id_p);
+        $this->view->verProducto($producto);
     }
 }
