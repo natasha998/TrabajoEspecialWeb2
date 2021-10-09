@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-29 15:08:57
+/* Smarty version 3.1.39, created on 2021-10-05 23:49:29
   from 'D:\xampp\htdocs\Trabajo\TrabajoEspecialWeb2\templetes\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61546569b79d45_72029270',
+  'unifunc' => 'content_615cc8695db137_94937621',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3b1a68c30559f33ae185bc08b6810d21c73af828' => 
     array (
       0 => 'D:\\xampp\\htdocs\\Trabajo\\TrabajoEspecialWeb2\\templetes\\home.tpl',
-      1 => 1632920934,
+      1 => 1633470306,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./footer.tpl' => 1,
   ),
 ),false)) {
-function content_61546569b79d45_72029270 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615cc8695db137_94937621 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 $_smarty_tpl->_subTemplateRender("file:./encabezado.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_prefixVariable1 = ob_get_clean();
@@ -38,6 +38,7 @@ echo $_prefixVariable2;?>
 <?php ob_start();
 $_smarty_tpl->_subTemplateRender("file:./footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_prefixVariable3 = ob_get_clean();
-echo $_prefixVariable3;
-}
+echo $_prefixVariable3;?>
+
+<?php }
 }

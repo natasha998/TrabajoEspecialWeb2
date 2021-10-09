@@ -15,7 +15,10 @@ class CatView{
         $this->smarty->display('templetes/tablaCategorias.tpl');
     } 
 
-    function mostarHome(){
-        header("Location: ".BASE_URL."home");
+
+    function mostrarCategorias(){
+        header("Location: ".BASE_URL."categorias");
     }
+
+    
 }

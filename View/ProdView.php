@@ -2,7 +2,6 @@
 
 require_once './libs/Smarty.class.php';
 
-
 class ProdView{
     private $smarty;
 
@@ -35,5 +34,4 @@ class ProdView{
     function mostrarProductos(){
         header("Location: ".BASE_URL."productos");
     }
-    
 }

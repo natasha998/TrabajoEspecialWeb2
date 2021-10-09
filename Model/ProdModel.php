@@ -43,7 +43,7 @@
 
 
      function eliminarProducto($id){
-        $sentencia = $this->db->prepare('DELETE FROM producto WHERE id_producto=$id');
+        $sentencia = $this->db->prepare('DELETE FROM producto WHERE id_producto=?');
         $sentencia->execute(array($id));
      }
 

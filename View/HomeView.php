@@ -15,7 +15,5 @@ class HomeView{
         $this->smarty->assign('home', 'Home');
         $this->smarty->display('templetes/home.tpl');
     }
-
-
     
 }

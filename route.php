@@ -1,5 +1,8 @@
 <?php
-require_once "./Controler/Controler.php";
+
+require_once "./Controller/CatController.php";
+require_once "./Controller/ProdController.php";
+require_once "./Controller/UserController.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -14,7 +17,9 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-$Cont = new Controler();
+$CatController = new CatController();
+$ProdController = new ProdController();
+$userController = new UserController();
 
 
 
@@ -22,26 +27,52 @@ $Cont = new Controler();
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home': 
-       $Cont->mostrarHome();
+       $CatController->mostrarHome();
      break;
      case 'about': 
-        $Cont->mostarContacto();
+        $CatController->mostarContacto();
       break;
      case 'categorias': 
-        $Cont->mostrarTablaCategoria();
+        $CatController->mostrarTablaCategoria();
      break;
+     case 'insertarCategorias':
+        $CatController->insertarCategorias();
+        break;
      case 'productos':
-        $Cont->tablaProducto();
+        $ProdController->tablaProducto();
         break;
     case 'agregarProductos':
-      $Cont->agregarProductos();
+      $CatController->agregarProductos();
       break;
      case 'mostrarTablaProductos':
-        $Cont->mostrarTablaProductos($params[1]);
+        $ProdController->mostrarTablaProductos($params[1]);
      break;
      case 'productoUnico':
-        $Cont->verProducto($params[1]);
+        $ProdController->verProducto($params[1]);
         break;
+      case 'editarCat':
+         $CatController->editarCat(2);
+      break;
+      case 'borrarCat':
+         echo "Si borra la categoria debe borrar todos los productos asociadas a ella";
+         $CatController->borrarCat($params[1]);
+      break;
+      case 'editarProd':
+         $ProdController->editarProd($params[1]);
+      break;
+      case 'borrarProd':
+         $ProdController->borrarProd($params[1]);
+      break;
+      case 'productoUnico':
+         $ProdController->verProducto($params[1]);
+      break;
+     case 'login':
+        $userController->verLogin();
+        break;
+      case 'confirmarLogin':
+         $userController->confirmarLogin();
+      break;
+ 
     default: 
         echo('404 Page not found'); 
         break;
